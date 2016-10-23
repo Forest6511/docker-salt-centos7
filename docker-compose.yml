@@ -1,0 +1,46 @@
+version: "2"
+
+services:
+  master:
+    build: ./master
+    privileged: true
+    restart: always
+    container_name: "salt"
+    hostname: "salt"
+    volumes:
+     - ./salt/:/srv/salt
+    ports:
+      - '2020:22'
+    depends_on:
+      - "client2"
+    networks:
+      - salt-self-tutorial-net
+
+  client1:
+    build: ./client
+    privileged: true
+    restart: always
+    container_name: "client1"
+    hostname: "client1"
+    ports:
+      - '2021:22'
+
+    networks:
+      - salt-self-tutorial-net
+
+  client2:
+    build: ./client
+    privileged: true
+    restart: always
+    container_name: "client2"
+    hostname: "client2"
+    ports:
+      - '2022:22'
+    depends_on:
+      - "client1"
+    networks:
+      - salt-self-tutorial-net
+
+networks:
+  salt-self-tutorial-net:
+    driver: bridge
