@@ -37,6 +37,7 @@ RUN systemctl enable salt-master.service
 
 # salt file
 RUN mkdir -p /srv/salt
+RUN mkdir -p /srv/pillar
 
 # change the root's password
 RUN echo "root:password" | chpasswd

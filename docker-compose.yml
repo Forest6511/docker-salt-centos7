@@ -9,6 +9,7 @@ services:
     hostname: "salt"
     volumes:
      - ./salt/:/srv/salt
+     - ./pillar/:/srv/pillar
     ports:
       - '2020:22'
     depends_on:

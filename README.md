@@ -49,3 +49,23 @@ Key for minion client2 accepted.
 ~~~
 [root@salt salt]# salt '*' state.apply
 ~~~
+
+### PILLAR
+- ref
+https://docs.saltstack.com/en/latest/topics/tutorials/pillar.html
+
+- To see the minion's pillar data
+~~~
+[root@salt salt]# salt '*' pillar.items
+~~~
+
+- To ensure that the minions have the new pillar data
+~~~
+[root@salt salt]# salt '*' saltutil.refresh_pillar
+~~~
+
+### etc
+- service restart (centos7)
+~~~
+systemctl start salt-master
+~~~
