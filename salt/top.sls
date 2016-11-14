@@ -6,3 +6,4 @@ base:
   'client1':
     - users
     - apache
+    - client1.rbenv

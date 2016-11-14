@@ -3,3 +3,5 @@ install_network_packages:
     - pkgs:
       - rsync
       - lftp
+      - git
+      - curl
